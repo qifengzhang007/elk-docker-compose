@@ -38,6 +38,9 @@ docker-compose.yml 只为快速创建 `elasticsearch+logstash+kibana`  集成环
      -Xms512m
      -Xmx512m
    2.  logstash > config  > logstash.yml 可以配置数据对接的 elasticsearch 服务器ip等参数，默认即可
+   
+   # 本配置项定义 logstash 需要采集的目标日志文件路径、名称以及发送到 elasticsearch 服务器时的文件名等，相对比较复杂。
+   # 请参考我们提供的格式修改即可，这样是最简单的办法.  
    3.  logstash > pipeline  > logstash.conf 配置采集的日志对象处理逻辑，请参考默认的格式配置即可
 ```
 
