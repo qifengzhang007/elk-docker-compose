@@ -32,6 +32,8 @@ services:
       - /etc/timezone:/etc/timezone
       - ./logstash/pipeline/:/usr/share/logstash/pipeline/
       - ./logstash/config/:/usr/share/logstash/config
+      # 这里主要将被采集的日志目标文件全部整个在一个目录，映射在容器内
+      - /home/wwwlogs/project2021/:/usr/share/wwwlogs/project2021/
     networks:
       - "elk-net"
     ulimits:
