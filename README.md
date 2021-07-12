@@ -7,7 +7,7 @@
 #### 2.ELK 统一设置版本号 
 - 1.`docker-compose.yml` 同目录的 .env 文件可以设置 `elk` 版本号，例如：默认为 `7.13.3` .
 - 2.官方最新版本号查看地址：[elasticsearch官网版本](https://www.elastic.co/cn/downloads/elasticsearch)   
-- 3.ELK 版本每次升级都都可能导致出现语法方面的兼容性问题，因为升级最新版本前请做好测试工作.     
+- 3.ELK 版本每次升级都都可能导致出现语法方面的兼容性问题，因此升级最新版本前请做好测试工作.     
  
 
 #### 3.ELK 各个子项配置介绍
@@ -72,6 +72,27 @@
 - 3.独立安装 logstash ,请屏蔽 elasticsearch+kibana  项即可。  
 - 4.以上操作都只是基于我们提供的docker-compose.yml 文件，您进行合适的选择即可.  
 
-#### 6.使用效果
-> 此文档是 elk 7.9.1 版本呈现的效果，请在文档最后查看实际效果即可.  
-[查看效果](https://gitee.com/daitougege/GinSkeleton/blob/master/docs/elk_log.md)  
+#### 6.访问与指标采集设置操作  
+> 现在我们可以访问kibana地址：`http://172.21.0.13:5601` , 如果是云服务器就使用外网地址访问即可.  
+> 以下操作基本都是可视化界面，通过鼠标点击等操作完成，我就以截图展示一个完整的主线操作流程, 其他知识请自行查询官网或者加我们的项目群咨询讨论.  
+![步骤1](https://www.ginskeleton.com/images/elk001.png)     
+![步骤2](https://www.ginskeleton.com/images/elk002.png)      
+![步骤3](https://www.ginskeleton.com/images/elk003.png)      
+![步骤4](https://www.ginskeleton.com/images/elk004.png)
+
+> 特别说明：以下数据是基于测试环境, 有一些数据是直接把老项目的日志文件覆盖到指定位置，所以界面的查询日期跨度比较大.  
+> nginx access 的日志  
+![nginx_access日志](https://www.ginskeleton.com/images/elk005.png)
+
+>> goskeleton 的日志  
+![goskeleton的elk日志](https://www.ginskeleton.com/images/elk006.png)
+
+> nginx error 的日志  
+![nginx_access日志](https://www.ginskeleton.com/images/elk007.png)
+
+
+#### 7.更炫酷未来
+> 基于以上数据我们可以在 elk 做数据统计、分析，例如：可视化展示网站访问量. 哪些接口访问最多、哪些接口访问最耗时，就需要优先优化。
+> elk 能做的事情超乎你的想象(机器学习、数据关联性分析、地理位置分布分析、各种图形化等等), 请参考官方提供的可视化模板，自己做数据展示设计即可。  
+> 比较遗憾的是我们做的模板无法直接分享给其他人,只能分享最终的效果，其他开发者可自行参考制作自己的展示模板.          
+![logstash样图](https://www.ginskeleton.com/images/logstash1.png)  
