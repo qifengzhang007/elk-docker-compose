@@ -51,7 +51,7 @@
    3.  logstash > pipeline  > logstash.conf 配置采集的日志对象处理逻辑，请参考默认的格式配置即可
 ```
 
-#### 3.快速安装于启动
+#### 3.快速安装与启动
 ```code  
  # 1.安装 docker 环境,如果没有docker环境，请先百度一下，安装。
  # 1.安装 docker-compose 环境,如果没有 docker-compose 扩展，参考 http://github.com/docker/compose/ 
