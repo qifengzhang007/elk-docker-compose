@@ -1,7 +1,8 @@
 ###  elk-docker-compose
 
 #### 前言
-docker-compose.yml 只为快速创建 `elasticsearch+logstash+kibana`  集成环境，主要为项目所产生的日志文件，提供顶级解决方案。  
+- 1.docker-compose.yml 只为快速创建 `elasticsearch+logstash+kibana`  集成环境，主要为项目所产生的日志文件，提供顶级解决方案。 
+- 2.此外,我们已经集成了 ip 转 geo 位置信息数据库,应用程序日志解决方案已经非常全面了.  
 
 
 #### 配置介绍
