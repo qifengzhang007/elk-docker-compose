@@ -1,37 +1,49 @@
-# elk-docker-compose
+###  elk-docker-compose
 
-#### 介绍
-docker-compose.yml 快速创建 elasticsearch+logstash+kibana  集成环境，使用于所有日志管理与分析系统。
-
-#### 软件架构
-软件架构说明
+#### 前言
+docker-compose.yml 只为快速创建 `elasticsearch+logstash+kibana`  集成环境，主要为项目所产生的日志文件，提供顶级解决方案。  
 
 
-#### 安装教程
+#### 配置介绍
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- elasticsearch 配置
+```code   
+# 配置文件目录 
+ elasticsearch > config 
+ # 如果服务器配置比较高，建议将 jvm.options 配置文件中的内存使用设置大一点，例如 默认为 1g，可以设置为 2g 
+    -Xms1g
+    -Xmx1g
+    
+```
 
-#### 使用说明
+- kibana 配置
+> kibana 主要提供界面展示系统，他需要连接 elasticsearch 获取数据，默认配置使用即可，不需要修改.  
+```code   
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+# 配置文件目录 , 可以在这里查询具体配置，默认即可
+ kibana > config 
+    
+```
 
-#### 参与贡献
+- logstash 配置
+> logstash 可以分布在任何服务器，负责采集日志，向 elasticsearch 服务器发送日志.如果你的应用程序产生的日志是独立的服务器，那么就需要在每台应用服务器安装。  
+```code   
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+# 配置文件目录 ,
+ logstash > config 
+          > pipeline   
+          
+  # 其中 config 目录主要配置 logstash 本身的参数
+   1.  logstash > config  > jvm.options 可以限制内存使用 ，默认为 512M ,如果服务器配置高，可以设置为 1g  
+     -Xms512m
+     -Xmx512m
+   2.  logstash > config  > logstash.yml 可以配置数据对接的 elasticsearch 服务器ip等参数，默认即可
+   3.  logstash > pipeline  > logstash.conf 配置采集的日志对象处理逻辑，请参考默认的格式配置即可
+```
 
 
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### 注意事项  
+- 1.本仓库提供的是 elk 集成环境,如果是中大型项目,可能 logstash 分布在多台服务器，那么服务器只需要安装 elasticsearch+kibana 即可.  
+- 2.请自行在 docker-compose.yml 文件屏蔽 logstash 相关项即可。
+- 3.独立安装 logstash ,请屏蔽 elasticsearch+kibana  项即可。  
+- 4.以上操作都只是基于我们提供的docker-compose.yml 文件，您进行合适的选择即可.  
