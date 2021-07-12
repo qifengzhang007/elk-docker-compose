@@ -68,3 +68,7 @@
 - 2.请自行在 docker-compose.yml 文件屏蔽 logstash 相关项即可。
 - 3.独立安装 logstash ,请屏蔽 elasticsearch+kibana  项即可。  
 - 4.以上操作都只是基于我们提供的docker-compose.yml 文件，您进行合适的选择即可.  
+
+#### 6.使用效果
+> 此文档是 elk 7.9.1 版本呈现的效果，请在文档最后查看实际效果即可.  
+[查看效果](https://gitee.com/daitougege/GinSkeleton/blob/master/docs/elk_log.md)  
