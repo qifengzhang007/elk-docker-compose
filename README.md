@@ -1,20 +1,22 @@
-###  elk-docker-compose
+###  elk集成环境 - docker-compose构建脚本
 
 #### 前言
-- 1.docker-compose.yml 只为快速创建 `elasticsearch+logstash+kibana`  集成环境，主要为项目所产生的日志文件，提供顶级解决方案。 
+- 1.本仓库只为快速创建 `elasticsearch+logstash+kibana`  集成环境，主要为项目所产生的日志文件，提供顶级解决方案。 
 - 2.此外,我们已经集成了 ip 转 geo 位置信息数据库,应用程序日志解决方案已经非常全面了.  
 
 
 #### 配置介绍
 
-- elasticsearch 配置 - 必须按照对应项做检查以及命令执行，例如：给日志目录初始化权限，否则 elasticsearch 启动报错.  
+- elasticsearch 配置   
+ 必须按照对应项做检查以及命令执行，例如：给日志目录初始化权限，否则 elasticsearch 启动报错.  
 ```code   
 # 配置文件目录 
  elasticsearch > config 
  # 如果服务器配置比较高，建议将 jvm.options 配置文件中的内存使用设置大一点，例如 默认为 1g，可以设置为 2g 
     -Xms1g
     -Xmx1g
- # 特别注意：
+    
+ # 特别注意（避坑必看）：
  logs 目录需要设置对应的去权限，否则报错
  chown R 1000:1000 ./elasticsearch/logs
     
