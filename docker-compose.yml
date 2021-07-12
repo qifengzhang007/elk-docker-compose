@@ -25,7 +25,7 @@ services:
   logstash:
     image: logstash:7.9.1
     container_name: logstash7
-    depend_on:
+    depends_on:
       elasticsearch
     links:
       - elasticsearch
@@ -46,6 +46,8 @@ services:
   kibana:
     image: kibana:7.9.1
     container_name: kibana7
+    depends_on:
+      elasticsearch
     links:
       - elasticsearch
     ports:
