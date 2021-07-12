@@ -14,6 +14,9 @@
  # 如果服务器配置比较高，建议将 jvm.options 配置文件中的内存使用设置大一点，例如 默认为 1g，可以设置为 2g 
     -Xms1g
     -Xmx1g
+ # 特别注意：
+ logs 目录需要设置对应的去权限，否则报错
+ chown R 1000:1000 ./elasticsearch/logs
     
 ```
 

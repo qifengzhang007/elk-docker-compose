@@ -25,7 +25,9 @@ services:
   logstash:
     image: logstash:7.9.1
     container_name: logstash7
-    aliases:
+    depend_on:
+      elasticsearch
+    links:
       - elasticsearch
     volumes:
       - /etc/localtime:/etc/localtime
@@ -44,7 +46,7 @@ services:
   kibana:
     image: kibana:7.9.1
     container_name: kibana7
-    aliases:
+    links:
       - elasticsearch
     ports:
       - "5601:5601"
