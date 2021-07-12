@@ -1,8 +1,8 @@
 version: "3.8"
 services:
   elasticsearch:
-    image: elasticsearch:7.9.1
-    container_name: elasticsearch7
+    image: elasticsearch:${ELK_VERSION}
+    container_name: elasticsearch-${ELK_VERSION}
     environment:
       - discovery.type=single-node
       - bootstrap.memory_lock=true
@@ -23,8 +23,8 @@ services:
         soft: -1
         hard: -1
   logstash:
-    image: logstash:7.9.1
-    container_name: logstash7
+    image: logstash:${ELK_VERSION}
+    container_name: logstash-${ELK_VERSION}
     depends_on:
       elasticsearch
     links:
@@ -37,6 +37,7 @@ services:
       - ./logstash/db_geoLite2_city/:/usr/share/logstash/db_geoLite2_city
       # 这里主要将被采集的日志目标文件全部整个在一个目录，映射在容器内
       - /home/wwwlogs/project2021/ginskeleton-backend.log:/usr/share/wwwlogs/project2021/ginskeleton-backend.log
+      - /home/wwwlogs/project2021/ginskeleton_nginx_access.log:/usr/share/wwwlogs/project2021/ginskeleton_nginx_access.log
     networks:
       - "elk-net"
     ulimits:
@@ -44,8 +45,8 @@ services:
         soft: -1
         hard: -1
   kibana:
-    image: kibana:7.9.1
-    container_name: kibana7
+    image: kibana:${ELK_VERSION}
+    container_name: kibana-${ELK_VERSION}
     depends_on:
       elasticsearch
     links:
