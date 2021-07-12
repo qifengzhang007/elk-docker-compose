@@ -22,11 +22,8 @@
     -Xmx1g
     
  # 特别注意（这里最容器报错，导致启动失败）：
- # logs 目录需要设置对应的权限，否则启动报错，最终导致启动失败
- chown R elasticsearch:elasticsearch ./elasticsearch/logs
- 
- # 或者按照用户组、用户id分配权限也可以，1000 、1000 分别表示 elasticsearch 组 和 elasticsearch 用户
- #chown R 1000:1000 ./elasticsearch/logs
+ # 按照用户组、用户id分配权限，1000 、1000 分别表示容器内的 elasticsearch 组 和 elasticsearch 用户
+ chown  -R   1000:1000  ./elasticsearch/*
     
 ```
 
