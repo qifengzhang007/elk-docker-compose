@@ -26,7 +26,7 @@ services:
     image: logstash:${ELK_VERSION}
     container_name: logstash-${ELK_VERSION}
     depends_on:
-      elasticsearch
+      - elasticsearch
     links:
       - elasticsearch
     volumes:
@@ -48,7 +48,7 @@ services:
     image: kibana:${ELK_VERSION}
     container_name: kibana-${ELK_VERSION}
     depends_on:
-      elasticsearch
+      - elasticsearch
     links:
       - elasticsearch
     ports:
