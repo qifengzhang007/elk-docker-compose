@@ -7,7 +7,7 @@
 
 #### 配置介绍
 
-- elasticsearch 配置
+- elasticsearch 配置 - 必须按照对应项做检查以及命令执行，例如：给日志目录初始化权限，否则 elasticsearch 启动报错.  
 ```code   
 # 配置文件目录 
  elasticsearch > config 
