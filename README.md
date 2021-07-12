@@ -1,11 +1,11 @@
 ###  elk集成环境 - docker-compose构建脚本
 
-#### 前言
+#### 1.前言
 - 1.本仓库只为快速创建 `elasticsearch+logstash+kibana`  集成环境，主要为项目所产生的日志文件，提供顶级解决方案。 
 - 2.此外,我们已经集成了 ip 转 geo 位置信息数据库,应用程序日志解决方案已经非常全面了.  
 
 
-#### 配置介绍
+#### 2.配置介绍
 
 - elasticsearch 配置   
  必须按照对应项做检查以及命令执行，例如：给日志目录初始化权限，否则 elasticsearch 启动报错.  
@@ -47,9 +47,16 @@
    
    # 本配置项定义 logstash 需要采集的目标日志文件路径、名称以及发送到 elasticsearch 服务器时的文件名等，相对比较复杂。
    # 请参考我们提供的格式修改即可，这样是最简单的办法.  
+   # 一个应用程序需要配置一个日志路径、文件名
    3.  logstash > pipeline  > logstash.conf 配置采集的日志对象处理逻辑，请参考默认的格式配置即可
 ```
 
+#### 3.快速安装于启动
+```code  
+ # 1.安装 docker 环境,如果没有docker环境，请先百度一下，安装。
+ # 1.安装 docker-compose 环境,如果没有 docker-compose 扩展，参考 http://github.com/docker/compose/ 
+ # 3.下载/克隆 本项目,在 docker-compose.yml 同目录执行命令 docker-compose  up -d  即可
+```
 
 #### 注意事项  
 - 1.本仓库提供的是 elk 集成环境,如果是中大型项目,可能 logstash 分布在多台服务器，那么服务器只需要安装 elasticsearch+kibana 即可.  
