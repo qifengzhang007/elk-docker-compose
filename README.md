@@ -4,8 +4,11 @@
 - 1.本仓库只为快速创建 `elasticsearch+logstash+kibana`  集成环境，主要为项目所产生的日志文件，提供顶级解决方案。 
 - 2.此外,我们已经集成了 ip 转 geo 位置信息数据库,应用程序日志解决方案已经非常全面了.  
 
+#### 2.ELK 统一设置版本号 
+- 1.docker-compose.yml 同目录的 .env 文件可以设置 elk 版本号，例如：默认为 7.9.1  
+ 
 
-#### 2.配置介绍
+#### 3.ELK 各个子项配置介绍
 
 - elasticsearch 配置   
  必须按照对应项做检查以及命令执行，例如：给日志目录初始化权限，否则 elasticsearch 启动报错.  
@@ -51,14 +54,14 @@
    3.  logstash > pipeline  > logstash.conf 配置采集的日志对象处理逻辑，请参考默认的格式配置即可
 ```
 
-#### 3.快速安装与启动
+#### 4.快速安装与启动
 ```code  
  # 1.安装 docker 环境,如果没有docker环境，请先百度一下，安装。
  # 1.安装 docker-compose 环境,如果没有 docker-compose 扩展，参考 http://github.com/docker/compose/ 
  # 3.下载/克隆 本项目,在 docker-compose.yml 同目录执行命令 docker-compose  up -d  即可
 ```
 
-#### 注意事项  
+#### 5.注意事项  
 - 1.本仓库提供的是 elk 集成环境,如果是中大型项目,可能 logstash 分布在多台服务器，那么服务器只需要安装 elasticsearch+kibana 即可.  
 - 2.请自行在 docker-compose.yml 文件屏蔽 logstash 相关项即可。
 - 3.独立安装 logstash ,请屏蔽 elasticsearch+kibana  项即可。  
