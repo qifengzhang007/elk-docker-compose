@@ -5,7 +5,7 @@
 - 2.此外,我们已经集成了 ip 转 geo 位置信息数据库,应用程序日志解决方案已经非常全面了.  
 
 #### 2.ELK 统一设置版本号 
-- 1.docker-compose.yml 同目录的 .env 文件可以设置 elk 版本号，例如：默认为 7.9.1  
+- 1.docker-compose.yml 同目录的 .env 文件可以设置 elk 版本号，例如：默认为 7.13.3 , 改版本号必须 >= 7.9.1
 - 2.官方最新版本号查看地址：https://www.elastic.co/cn/downloads/elasticsearch   
 - 3.ELK 版本每次升级在语法方面的兼容性都都可能导致出现问题，因为升级最新版本前请做好测试工作.     
  
