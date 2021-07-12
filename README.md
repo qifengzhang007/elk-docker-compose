@@ -6,6 +6,8 @@
 
 #### 2.ELK 统一设置版本号 
 - 1.docker-compose.yml 同目录的 .env 文件可以设置 elk 版本号，例如：默认为 7.9.1  
+- 2.官方最新版本号查看地址：https://www.elastic.co/cn/downloads/elasticsearch   
+- 3.ELK 版本每次升级在语法方面的兼容性都都可能导致出现问题，因为升级最新版本前请做好测试工作.     
  
 
 #### 3.ELK 各个子项配置介绍
