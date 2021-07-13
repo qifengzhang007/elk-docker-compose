@@ -3,6 +3,8 @@
 #### 1.前言
 - 1.本仓库只为快速创建 `elasticsearch+logstash+kibana`  集成环境，主要为项目所产生的日志文件，提供顶级解决方案。 
 - 2.此外,我们已经集成了 ip 转 geo 位置信息数据库,应用程序日志解决方案已经非常全面了.  
+- elk 工作原理  
+ ![elk工作原理](https://www.ginskeleton.com/images/elk_struct.png)
 
 #### 2.ELK 统一设置版本号 
 - 1.`docker-compose.yml` 同目录的 .env 文件可以设置 `elk` 版本号，例如：默认为 `7.13.3` .
@@ -21,7 +23,7 @@
     -Xms1g
     -Xmx1g
     
- # 特别注意（这里最容器报错，导致启动失败）：
+ # 特别注意（这里最容易报错，导致容器启动失败）：
  # 按照用户组、用户id分配权限，1000 、1000 分别表示容器内的 elasticsearch 组 和 elasticsearch 用户
  chown  -R   1000:1000  ./elasticsearch/*
     
@@ -67,7 +69,7 @@
 - 1.本仓库提供的是 elk 集成环境,如果是中大型项目,可能 logstash 分布在多台服务器，那么服务器只需要安装 elasticsearch+kibana 即可.  
 - 2.请自行在 docker-compose.yml 文件屏蔽 logstash 相关项即可。
 - 3.独立安装 logstash ,请屏蔽 elasticsearch+kibana  项即可。  
-- 4.以上操作都只是基于我们提供的docker-compose.yml 文件，您进行合适的选择即可.  
+- 4.以上操作都只是基于我们提供的docker-compose.yml 文件，您进行合适的选择即可.
 
 #### 6.访问与指标采集设置操作  
 > 现在我们可以访问kibana地址：`http://172.21.0.13:5601` , 如果是云服务器就使用外网地址访问即可.  
