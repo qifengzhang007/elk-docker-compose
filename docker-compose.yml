@@ -17,7 +17,7 @@ services:
       - ./elasticsearch/data/:/usr/share/elasticsearch/data/
       - ./elasticsearch/logs/:/usr/share/elasticsearch/logs/
     networks:
-      - "elk-net"
+      - elk-net
     ulimits:
       memlock:
         soft: -1
@@ -26,8 +26,6 @@ services:
     image: logstash:${ELK_VERSION}
     container_name: logstash-${ELK_VERSION}
     depends_on:
-      - elasticsearch
-    links:
       - elasticsearch
     volumes:
       - /etc/localtime:/etc/localtime
@@ -39,7 +37,7 @@ services:
       - /home/wwwlogs/project2021/ginskeleton-backend.log:/usr/share/wwwlogs/project2021/ginskeleton-backend.log
       - /home/wwwlogs/project2021/ginskeleton_nginx_access.log:/usr/share/wwwlogs/project2021/ginskeleton_nginx_access.log
     networks:
-      - "elk-net"
+      - elk-net
     ulimits:
       memlock:
         soft: -1
@@ -49,8 +47,6 @@ services:
     container_name: kibana-${ELK_VERSION}
     depends_on:
       - elasticsearch
-    links:
-      - elasticsearch
     ports:
       - "5601:5601"
     volumes:
@@ -58,7 +54,7 @@ services:
       - /etc/timezone:/etc/timezone
       - ./kibana/config/:/usr/share/kibana/config/
     networks:
-      - "elk-net"
+      - elk-net
     ulimits:
       memlock:
         soft: -1
