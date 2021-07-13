@@ -7,7 +7,7 @@
  ![elk工作原理](https://www.ginskeleton.com/images/elk_struct.png)
 
 #### 2.ELK 统一设置版本号 
-- 1.`docker-compose.yml` 同目录的 .env 文件可以设置 `elk` 版本号，例如：默认为 `7.13.3` .
+- 1.`docker-compose.yml` 同目录的 `.env` 文件可以设置 `elk` 版本号，例如：默认为 `7.13.3` .
 - 2.官方最新版本号查看地址：[elasticsearch官网版本](https://www.elastic.co/cn/downloads/elasticsearch)   
 - 3.ELK 版本每次升级都都可能导致出现语法方面的兼容性问题，因此升级最新版本前请做好测试工作.     
  
