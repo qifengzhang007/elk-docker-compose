@@ -6,7 +6,7 @@ services:
     environment:
       - discovery.type=single-node
       - bootstrap.memory_lock=true
-     # - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      # - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ports:
       - 9200:9200
       - 127.0.0.1:9300:9300
@@ -33,9 +33,10 @@ services:
       - ./logstash/pipeline/:/usr/share/logstash/pipeline/
       - ./logstash/config/:/usr/share/logstash/config
       - ./logstash/db_geoLite2_city/:/usr/share/logstash/db_geoLite2_city
-      # 这里主要将被采集的日志目标文件全部整个在一个目录，映射在容器内
-      - /home/wwwlogs/project2021/ginskeleton-backend.log:/usr/share/wwwlogs/project2021/ginskeleton-backend.log
-      - /home/wwwlogs/project2021/ginskeleton_nginx_access.log:/usr/share/wwwlogs/project2021/ginskeleton_nginx_access.log
+      # 被采集的日志文件往往要求都是实时性的，所以必须映射目录，不要映射文件，否则文件变化 logstash 不会实时采集，只有每次启动的时候才会采集
+      # - /home/wwwlogs/project2021/test.log:/usr/share/wwwlogs/project2021/test.log # 该方式当文件发生变化时，logstash 不会实时采集，原因参见避坑指南链接 ↓ ↓ ↓
+      # 避坑指南参见：https://blog.csdn.net/biao0309/article/details/105186106
+      - /home/wwwlogs/project2021/:/usr/share/wwwlogs/project2021/
     networks:
       - elk-net
     ulimits:
