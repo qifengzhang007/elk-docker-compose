@@ -64,6 +64,7 @@
  # 1.安装 docker-compose 环境,如果没有 docker-compose 扩展，参考 http://github.com/docker/compose/ 
  # 3.下载/克隆 本项目,在 docker-compose.yml 同目录执行命令 docker-compose  up -d  即可
 ```
+![elk启动效果图](https://www.ginskeleton.com/images/elk_status.png)  
 
 #### 5.注意事项  
 - 1.本仓库提供的是 elk 集成环境,如果是中大型项目,可能 logstash 分布在多台服务器，那么服务器只需要安装 elasticsearch+kibana 即可.  
